@@ -1,0 +1,52 @@
+{% extends "base_app.html" %}
+{% block title %}Community{% endblock %}
+{% block content %}
+<h1>Community</h1>
+<div class="tabs">
+  <button class="tab active" data-action="tab" data-tab="people">People</button>
+  <button class="tab" data-action="tab" data-tab="posts">Posts</button>
+</div>
+
+<section id="tab-people">
+  <div class="row filters">
+    <select id="f-role"><option value="">All roles</option></select>
+    <select id="f-relation">
+      <option value="">Seniors, juniors &amp; peers</option>
+      <option value="senior">Seniors</option>
+      <option value="peer">Peers</option>
+      <option value="junior">Juniors</option>
+    </select>
+    <label class="inline"><input type="checkbox" id="f-college" checked> My college only</label>
+  </div>
+  <div id="people-list" class="grid"></div>
+</section>
+
+<section id="tab-posts" hidden>
+  <form id="post-form" class="card form">
+    <h3>Share something</h3>
+    <div class="row">
+      <select name="type" required>
+        <option value="question">Question</option>
+        <option value="resource">Resource</option>
+        <option value="project_idea">Project idea</option>
+        <option value="discussion">Discussion</option>
+      </select>
+      <select name="role_tag" id="post-role"><option value="">Any role</option></select>
+    </div>
+    <input type="text" name="title" placeholder="Title" required minlength="3" maxlength="200">
+    <textarea name="body" rows="3" placeholder="Write your post…" required minlength="3" maxlength="3000"></textarea>
+    <p id="post-error" class="error" hidden></p>
+    <button class="btn" type="submit">Post</button>
+  </form>
+  <div class="row filters">
+    <select id="pf-type">
+      <option value="">All types</option><option value="question">Questions</option>
+      <option value="resource">Resources</option><option value="project_idea">Project ideas</option>
+      <option value="discussion">Discussions</option>
+    </select>
+    <select id="pf-role"><option value="">All roles</option></select>
+    <label class="inline"><input type="checkbox" id="pf-college" checked> My college only</label>
+  </div>
+  <div id="post-list" class="stack"></div>
+</section>
+{% endblock %}

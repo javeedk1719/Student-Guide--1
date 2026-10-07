@@ -1,0 +1,16 @@
+{% extends "base_app.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<div id="dash-stats" class="grid stats"><div class="card skeleton">Loading…</div></div>
+
+<div class="grid two">
+  <section class="card" id="dash-roadmap"><h3>Learning progress</h3><p class="muted">Loading…</p></section>
+  <section class="card" id="dash-task"><h3>Today's task</h3><p class="muted">Preparing your task…</p></section>
+</div>
+
+<div class="grid two">
+  <section class="card" id="dash-profile"><h3>Profile</h3></section>
+  <section class="card" id="dash-remaining"><h3>Remaining topics</h3></section>
+</div>
+{% endblock %}

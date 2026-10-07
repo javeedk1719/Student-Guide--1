@@ -1,0 +1,15 @@
+{% extends "base_app.html" %}
+{% block title %}Tech Updates{% endblock %}
+{% block content %}
+<h1>Daily Tech Updates</h1>
+<p class="muted">Fresh tech news, explained for students.</p>
+<div class="row">
+  <label class="inline">Show
+    <select id="news-filter">
+      <option value="">All updates</option>
+      <option value="mine">Relevant to my role</option>
+    </select>
+  </label>
+</div>
+<div id="news-list" class="stack"><div class="card skeleton">Loading news…</div></div>
+{% endblock %}

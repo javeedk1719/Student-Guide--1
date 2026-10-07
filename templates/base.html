@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% block title %}Student Guide{% endblock %} | Student Guide</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/app.js" defer></script>
+</head>
+<body data-page="{{ page }}" data-private="{% block private %}false{% endblock %}">
+  {% block body %}{% endblock %}
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

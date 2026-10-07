@@ -1,0 +1,39 @@
+{% extends "base_app.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h1>My Profile</h1>
+<form id="profile-form" class="card form">
+  <div class="grid two">
+    <label>Name<input type="text" name="name" required minlength="2"></label>
+    <label>Email<input type="email" name="email" disabled></label>
+    <label>College<input type="text" name="college" required minlength="2"></label>
+    <label>Career role<select name="career_role" id="role-select"><option value="">Not selected</option></select></label>
+    <label>Current skill level
+      <select name="skill_level">
+        <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+      </select>
+    </label>
+    <label>Available learning time
+      <select name="available_time">
+        <option value="">Not specified</option>
+        <option>Less than 1 hour/day</option><option>1-2 hours/day</option>
+        <option>3-4 hours/day</option><option>5+ hours/day</option>
+      </select>
+    </label>
+    <label>Year of study
+      <select name="study_year">
+        <option value="">Not specified</option>
+        <option value="1">1st year</option><option value="2">2nd year</option>
+        <option value="3">3rd year</option><option value="4">4th year</option>
+        <option value="5">5th year / Postgraduate</option><option value="6">Alumni</option>
+      </select>
+    </label>
+    <label>Skills (comma separated)<input type="text" name="skills" placeholder="Python, HTML, SQL"></label>
+  </div>
+  <label>Learning goals<textarea name="learning_goals" rows="2" maxlength="1000" placeholder="e.g. Get a backend internship by December"></textarea></label>
+  <label>Interests (comma separated)<input type="text" name="interests" placeholder="APIs, open source, hackathons"></label>
+  <label>Short bio<textarea name="bio" rows="2" maxlength="500"></textarea></label>
+  <p id="form-error" class="error" hidden></p>
+  <button class="btn" type="submit">Save profile</button>
+</form>
+{% endblock %}

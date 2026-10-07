@@ -1,0 +1,12 @@
+{% extends "base_app.html" %}
+{% block title %}Resources{% endblock %}
+{% block content %}
+<h1>Learning Resources</h1>
+<p class="muted">Search YouTube for any topic you are learning.</p>
+<form id="search-form" class="row search-row">
+  <input type="search" name="query" placeholder="e.g. FastAPI, SQL joins, Docker" minlength="2" maxlength="100" required>
+  <button class="btn" type="submit">Search</button>
+</form>
+<div id="topic-chips" class="chips"></div>
+<div id="results" class="grid res-grid"></div>
+{% endblock %}

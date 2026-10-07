@@ -1,0 +1,14 @@
+{% extends "base_public.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<section class="card auth-card">
+  <h2>Welcome back</h2>
+  <form id="login-form" class="form" novalidate>
+    <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+    <p id="form-error" class="error" hidden></p>
+    <button class="btn btn-block" type="submit">Login</button>
+  </form>
+  <p class="muted small">New here? <a href="/register">Create an account</a></p>
+</section>
+{% endblock %}

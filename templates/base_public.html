@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<header class="topbar">
+  <a class="brand" href="/">🎓 Student Guide</a>
+  <nav class="top-links">
+    <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark mode">🌓</button>
+    {% if logged_in %}
+      <a class="btn btn-sm" href="/dashboard">Go to dashboard</a>
+    {% else %}
+      <a class="btn btn-sm btn-outline" href="/login">Login</a>
+      <a class="btn btn-sm" href="/register">Sign up</a>
+    {% endif %}
+  </nav>
+</header>
+<main class="public-main">{% block content %}{% endblock %}</main>
+{% endblock %}

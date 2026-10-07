@@ -1,0 +1,24 @@
+{% extends "base_public.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Know what to learn. Build what matters.</h1>
+  <p>Student Guide gives college students a personalised learning roadmap, the right YouTube videos for every
+     topic, small daily tasks, tech news explained for your career, and a community of seniors, juniors and peers.</p>
+  {% if logged_in %}
+    <a class="btn" href="/dashboard">Open my dashboard</a>
+  {% else %}
+    <a class="btn" href="/register">Get started free</a>
+    <a class="btn btn-outline" href="/login">I already have an account</a>
+  {% endif %}
+</section>
+
+<section class="grid features">
+  <article class="card"><h3>🗺️ Role-based roadmap</h3><p class="muted">AI builds your path: learn, practice, build, complete, next step.</p></article>
+  <article class="card"><h3>▶️ Best videos per topic</h3><p class="muted">Every roadmap step is matched with YouTube learning resources.</p></article>
+  <article class="card"><h3>✅ Daily tasks</h3><p class="muted">One small practical task a day keeps you consistent.</p></article>
+  <article class="card"><h3>📰 Tech updates that matter</h3><p class="muted">Fresh news with why it matters and which roles should care.</p></article>
+  <article class="card"><h3>👥 College community</h3><p class="muted">Find seniors, juniors and peers on the same career path.</p></article>
+  <article class="card"><h3>📈 Track progress</h3><p class="muted">See topics, tasks and resources completed at a glance.</p></article>
+</section>
+{% endblock %}

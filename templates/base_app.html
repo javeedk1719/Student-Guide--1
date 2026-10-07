@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block private %}true{% endblock %}
+{% set nav_items = [
+  ("dashboard", "Dashboard", "/dashboard", "🏠"),
+  ("tech_updates", "Tech Updates", "/tech-updates", "📰"),
+  ("roadmap", "Roadmap", "/roadmap", "🗺️"),
+  ("resources", "Resources", "/resources", "▶️"),
+  ("tasks", "Daily Tasks", "/tasks", "✅"),
+  ("community", "Community", "/community", "👥"),
+  ("profile", "Profile", "/profile", "👤")
+] %}
+{% block body %}
+<header class="mobile-bar">
+  <a class="brand" href="/dashboard">🎓 Student Guide</a>
+  <details class="more-menu">
+    <summary aria-label="Menu">☰</summary>
+    <div class="menu-panel">
+      <a href="/resources">▶️ Resources</a>
+      <a href="/profile">👤 Profile</a>
+      <a href="#" data-action="toggle-theme">🌓 Theme</a>
+      <a href="#" data-action="logout">🚪 Logout</a>
+    </div>
+  </details>
+</header>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="/">🎓 Student Guide</a>
+    <nav class="side-nav">
+      {% for key, label, href, icon in nav_items %}
+        <a href="{{ href }}" class="{{ 'active' if page == key else '' }}"><span>{{ icon }}</span> {{ label }}</a>
+      {% endfor %}
+    </nav>
+    <div class="side-foot">
+      <div id="nav-user" class="muted small"></div>
+      <button class="btn btn-sm btn-outline btn-block" data-action="toggle-theme">🌓 Theme</button>
+      <button class="btn btn-sm btn-outline btn-block" data-action="logout">Logout</button>
+    </div>
+  </aside>
+
+  <main class="main">{% block content %}{% endblock %}</main>
+</div>
+
+<nav class="bottom-nav">
+  {% for key, label, href, icon in nav_items %}
+    {% if key in ['dashboard', 'roadmap', 'tasks', 'tech_updates', 'community'] %}
+      <a href="{{ href }}" class="{{ 'active' if page == key else '' }}"><span>{{ icon }}</span><small>{{ label.split(' ')[-1] }}</small></a>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endblock %}
